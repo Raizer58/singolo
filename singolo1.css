@@ -14,46 +14,60 @@ header {
     font-family: Lato, sans-serif;
 }
 
-.wrapper{
-    position: relative;
+header .layout-2-column {
+    display: flex;
 }
+
 .header__logo {
-    position: absolute;
-    top: 25px;
-    left: 40px;
+   margin-top: 24px;
+   margin-left: 40px;
+   flex-grow: 1;
 }
 
 .header__logo > h1 {
     line-height: 6px;
     font-weight: 700;
     color: white;
-    font-size: 2.43rem;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
 }
 
 .header__logo span {
     color: #f06c64;
 }
 
-.header__link {
-    position: absolute;
-    right: 26px;
-    top: 43px;
+.header__navigation {
+    margin-right: 40px;
+    margin-top: 42px;
 }
 
-.header__link > a{
+.header__navigation > a {
     text-decoration: none;
-    font-size: 1.17rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: white;
-    margin: 0px 14px;
+    letter-spacing: -0.2px;
+    margin-left: 28px;
 }
 
-.header__link :first-child{
+.header__navigation > a:hover {
     color: #f06c64;
 }
-.header__button {
-    position: relative;
-    top: 91px;
+
+.header__bottom {
+    margin-top: 25.74px;
     background-color:#323746;
     height: 6px;
+}
+
+main {
+    background-color: #f06c64;
+    height: 600px;
+}
+
+
+.slider-bottom {
+    margin: ;
+    height: 15px;
+    background-color: #ea676b;
 }
