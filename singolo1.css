@@ -91,9 +91,8 @@ main {
     height: 600px;
 }
 
-.layout-4-column {
+.main__slider>.layout-4-column {
     display: flex;
-    align-content: flex-end ;
 }
 
 .main__left-chev {
@@ -121,3 +120,106 @@ main {
     height: 7px;
     background-color: #ea676b;
 }
+
+.main__services {
+    background-color: #f2f2f2;
+    height: 501px;
+}
+
+.main__description {
+    padding-top: 44px;
+    padding-left: 39px;
+}
+
+.main__description>h2 {
+    font-family: Lato, sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 18px;
+    color: #666d89;
+    letter-spacing: -0.1px;
+}
+
+.main__description>p {
+    padding-top: 2px;
+    padding-left: 1px;
+    font-family: Lato, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 30px;
+    color: #767e9e;
+    letter-spacing: 0.15px;
+}
+
+.main__services p>span {
+   letter-spacing: 0px;
+}
+
+.main__services>.layout-3-column{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 46px;
+}
+
+.main__services .main__custom-design,
+.main__services .main__inovative-ideas,
+.main__services .main__love-is-the-answer,
+.main__services .main__responsive-layout,
+.main__services .main__support,
+.main__services .main__feel-like-a-star {
+    display: flex;
+    align-items: flex-start;
+    width: 300px;
+    height: 85px;
+    margin-bottom: 38px;    
+}
+
+.main__services .main__custom-design>img,
+.main__services .main__responsive-layout>img {
+    margin-right: 18px;
+}
+
+.main__services .main__inovative-ideas>img,
+.main__services .main__support>img {
+    margin-left: -1px;
+    margin-right: 19px;
+}
+
+.main__services .main__love-is-the-answer>img,
+.main__services .main__feel-like-a-star>img {
+    margin-left: -1px;
+    margin-right: 19px;
+}
+
+.main__services>.layout-3-column h3 {
+    font-family: Lato, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 18px;
+    color: #666d89;
+    letter-spacing: -0.15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.main__services>.layout-3-column p {
+    font-family: Lato, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 22px;
+    color: #767e9e;
+    letter-spacing: 0.1px;
+    word-spacing: 0.1px;
+    margin-top: 10px;
+}
+
+.main__services-bottom {
+    background-color: #ffffff;
+    height: 6px;
+    margin-top: 30px;
+}
+
