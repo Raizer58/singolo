@@ -1,0 +1,174 @@
+@font-face {
+  font-family: Lato;
+  src: url(assets/Lato/Lato-Light.ttf);
+  font-weight: 300; }
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/Lato/Lato-Regular.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/Lato/Lato-Black.ttf);
+  font-weight: 900; }
+
+html {
+  font-size: 10px; }
+
+body {
+  width: 1020px;
+  margin: 0px auto; }
+  body main {
+    background-color: #f06c64;
+    height: 654px; }
+    body main .main__get-a-quote > .main__description {
+      padding-top: 70px;
+      padding-left: 40px; }
+      body main .main__get-a-quote > .main__description h2 {
+        font-family: Lato, Arial, sans-serif;
+        font-weight: 900;
+        font-size: 3rem;
+        line-height: 16px;
+        color: #f0d8d9;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        letter-spacing: -0.2px; }
+      body main .main__get-a-quote > .main__description p {
+        font-family: Lato, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 1.8rem;
+        line-height: 30px;
+        color: #f0d8d9;
+        margin-top: 28px;
+        letter-spacing: 0.14px; }
+      body main .main__get-a-quote > .main__description span {
+        letter-spacing: 0px; }
+    body main .main__get-a-quote > .layout-2-column {
+      display: flex;
+      margin-left: 40px;
+      margin-top: 43px;
+      text-align: start; }
+      body main .main__get-a-quote > .layout-2-column form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; }
+      body main .main__get-a-quote > .layout-2-column input {
+        width: 605px;
+        height: 35px;
+        padding-left: 13px;
+        border: 1px solid #d6564f;
+        border-radius: 5px;
+        background-color: #d6564f; }
+        body main .main__get-a-quote > .layout-2-column input:nth-child(n+2) {
+          margin-top: 15px; }
+        body main .main__get-a-quote > .layout-2-column input::placeholder {
+          font-family: Lato, Arial, sans-serif;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 35px;
+          color: #f48c8f; }
+      body main .main__get-a-quote > .layout-2-column textarea {
+        width: 602px;
+        height: 191px;
+        margin-top: 15px;
+        padding-left: 14px;
+        padding-top: 11px;
+        resize: none;
+        border: 1px solid #d6564f;
+        border-radius: 5px;
+        background-color: #d6564f; }
+        body main .main__get-a-quote > .layout-2-column textarea::placeholder {
+          letter-spacing: 0.02px;
+          font-family: Lato, Arial, sans-serif;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 14px;
+          color: #f48c8f; }
+      body main .main__get-a-quote > .layout-2-column button {
+        width: 200px;
+        height: 35px;
+        margin-top: 15px;
+        border: 1px solid #fcd1cf;
+        border-radius: 5px;
+        background-color: #fcd1cf;
+        font-family: Lato, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 22px;
+        color: #77070c; }
+        body main .main__get-a-quote > .layout-2-column button:hover {
+          cursor: pointer; }
+    body main .main__contact-information {
+      margin-left: 20px;
+      width: 302px; }
+      body main .main__contact-information h3 {
+        margin-top: 1px;
+        margin-bottom: 0px;
+        font-family: Lato, Arial, sans-serif;
+        font-weight: 900;
+        font-size: 1.8rem;
+        line-height: 18px;
+        color: #f0d8d9;
+        letter-spacing: -0.11px; }
+      body main .main__contact-information p {
+        margin-top: 10px;
+        font-family: Lato, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 22px;
+        color: #f0d8d9; }
+      body main .main__contact-information span {
+        letter-spacing: 0.2px; }
+      body main .main__contact-information .contact-information__location {
+        line-height: 12px;
+        margin: 27px 3px 3px; }
+        body main .main__contact-information .contact-information__location img {
+          margin-right: 13px; }
+      body main .main__contact-information .contact-information__phone {
+        line-height: 12px;
+        margin: 4px 0px 0px; }
+        body main .main__contact-information .contact-information__phone img {
+          margin-right: 8px; }
+        body main .main__contact-information .contact-information__phone a {
+          font-family: Lato, Arial, sans-serif;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 22px;
+          color: #f0d8d9;
+          text-decoration: none; }
+          body main .main__contact-information .contact-information__phone a:hover {
+            text-decoration: underline; }
+      body main .main__contact-information .contact-information__email {
+        line-height: 12px;
+        margin: 0px; }
+        body main .main__contact-information .contact-information__email img {
+          margin-right: 8px; }
+        body main .main__contact-information .contact-information__email a {
+          font-family: Lato, Arial, sans-serif;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 22px;
+          color: #f0d8d9;
+          text-decoration: none; }
+          body main .main__contact-information .contact-information__email a:hover {
+            text-decoration: underline; }
+    body main .main_bottom {
+      margin-top: 16px;
+      height: 6px;
+      background-color: #ea676b; }
+  body footer {
+    height: 76px;
+    background-color: #2d303a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    body footer h3 {
+      margin-top: 11px;
+      margin-left: 42px; }
+    body footer ul {
+      margin-right: 37px;
+      margin-top: 14px; }
+    body footer li {
+      display: inline;
+      margin-right: 3px; }
