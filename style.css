@@ -39,6 +39,7 @@ header {
     font-family: Lato, sans-serif;
     position: fixed;
     top: 0px;
+    z-index: 2;
 }
 
 header .layout-2-column {
@@ -87,7 +88,7 @@ header .layout-2-column {
 }
 
 .header__bottom {
-    margin-top: 24px;
+    margin-top: 25px;
     background-color:#323746;
     height: 6px;
 }
@@ -102,32 +103,87 @@ main {
     top: -94.1px;
 }
 
-.main__slider>.layout-4-column {
+.main__slider>.layout-3-column {
     display: flex;
+    justify-content: space-between;
+    height: 564px;
 }
 
 .main__left-chev {
-    padding-top: 281px;
-    padding-left: 42px;
+    margin-top: 281px;
+    margin-left: 42px;
+    margin-right: 42px;
 }
 
-.main__iphone-vertical {
-    padding-top: 52px;
-    padding-left: 52px;
+.main__phone-one{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 28px;
+    margin-left: 11px;
 }
 
-.main__iphone-horizontal {
-    padding-top: 174px;
-    padding-left: 71px;
+.main__iphone-vertical-first {
+
+}
+
+.main__iphone-vertical-first-offline {
+    margin-left: -228px;
+    margin-top: -22px;
+    width: 188px;
+    height: 334px;
+    background-color: #0f0f0f;
+    z-index: 1;
+}
+
+.main__iphone-horizontal-first {
+    margin-left: 111px;
+    margin-top: -1px;
+}
+
+.main__iphone-horizontal-first-offline {
+    margin-left: -425px;
+    margin-top: -26px;
+}
+
+.main__phone-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 25px;
+}
+
+.main__iphone-vertical-second-left {
+    margin-right: -18px;
+    opacity: 50%;
+}
+
+.main__iphone-vertical-second-middle {
+    z-index: 1;
+}
+
+.main__iphone-vertical-second-right {
+    margin-left: -26px;
+    opacity: 50%;
+}
+
+.main__hiden {
+    display: none;
+}
+
+.main__hiden-screen {
+    opacity: 0;
 }
 
 .main__right-chev {
-    padding-top: 281px;
-    padding-left: 54px;
+    margin-top: 281px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .main__slider-bottom {
-    margin-top: 52px;
+    margin-top: 30px;
     height: 7px;
     background-color: #ea676b;
 }
