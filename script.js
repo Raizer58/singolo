@@ -93,10 +93,10 @@ function slideRight(event){
 };
 
 const verticalPhone = document.querySelector('#iphone-vertical-first-offline'); //выключение вертикального телефона
-verticalPhone.addEventListener('click', (event) => event.target.classList.toggle('main__hiden-screen'));
+verticalPhone.addEventListener('click', event => event.target.classList.toggle('main__hiden-screen'));
 
 const horizontalPhone = document.querySelector('#iphone-horizontal-first-offline'); //выключение горизонтального телефона
-horizontalPhone.addEventListener('click', (event) => event.target.classList.toggle('main__hiden-screen'));
+horizontalPhone.addEventListener('click', event => event.target.classList.toggle('main__hiden-screen'));
 
 const portfolioFirstButton = document.querySelector('#portfolio-first-button');
 portfolioFirstButton.addEventListener('click', changePositionImgPortfolio)
@@ -120,7 +120,36 @@ function changePositionImgPortfolio(event){ //сортировка картин�
 }
 
 const containerPortfolio = document.querySelector('#container-with-portfolio'); //выделение картинок портфолио при клике
-containerPortfolio.addEventListener('click', (event) => {
+containerPortfolio.addEventListener('click', event => {
     containerPortfolio.querySelectorAll('img').forEach(el => el.classList.remove('img_outline'));
     event.target.classList.add('img_outline');
 })
+
+
+const mainForm = document.querySelector('#a-quote-mark') 
+const buttonMainForm = document.querySelector('#a-quote-mark>button') 
+buttonMainForm.addEventListener('click', sendMainForm)
+const submiteSendMainForm =  document.querySelector('#form-message>button')  //подтверждение отправки формы
+submiteSendMainForm.addEventListener('click', event => {
+    document.querySelector('#form-message-block').classList.add('main__hiden');
+    document.querySelector('#form-message>p:nth-child(2)').innerHTML = "Тема: Без темы";
+    document.querySelector('#form-message>p:nth-child(3)').innerHTML = "Описание: Без описания";
+})
+
+function sendMainForm (event) { //отправка формы
+    
+    if (mainForm.querySelector('input:first-child').checkValidity() && mainForm.querySelector('input:nth-child(2)').checkValidity()){
+
+        if(mainForm.querySelector('input:nth-child(3)').value.length > 0){
+            let messageSubject = document.querySelector('#form-message>p:nth-child(2)').innerText.slice(0,6) + mainForm.querySelector('input:nth-child(3)').value;
+            document.querySelector('#form-message>p:nth-child(2)').innerHTML = messageSubject
+        };
+        if(mainForm.querySelector('textarea').value.length > 0){
+            let messageDescribe = document.querySelector('#form-message>p:nth-child(3)').innerText.slice(0,10) + mainForm.querySelector('textarea').value;
+            document.querySelector('#form-message>p:nth-child(3)').innerHTML = messageDescribe
+        };
+        event.preventDefault();
+        document.querySelector('#form-message-block').classList.remove('main__hiden')
+        mainForm.querySelectorAll('*').forEach(el => el.value ="")
+    }
+}
