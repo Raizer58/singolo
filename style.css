@@ -95,12 +95,15 @@ header .layout-2-column {
 
 main {
     margin-top: 94.1px;
-    background-color: #f06c64;
 }
 
 #home-mark {
     position: relative;
     top: -94.1px;
+}
+
+.main__slider {
+    background-color: #f06c64;
 }
 
 .main__slider>.layout-3-column {
@@ -383,15 +386,15 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    margin-left: 40px;
-    margin-right: 40px;
+    justify-content: space-evenly;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 620px;
     overflow: hidden;
 }
 
-.main__portfolio>.layout-4-column>img{
-    margin-bottom: 19.8px;
+.main__portfolio>.layout-4-column>.img_outline {
+    outline: 5px solid #F06C64;
 }
 
 .main__portfolio>.portfolio__bottom{
