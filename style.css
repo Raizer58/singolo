@@ -103,58 +103,100 @@ main {
 }
 
 .main__slider {
-    background-color: #f06c64;
+
 }
 
 .main__slider>.layout-3-column {
-    display: flex;
-    justify-content: space-between;
-    height: 564px;
+    height: 594px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
-.main__left-chev {
-    margin-top: 281px;
-    margin-left: 42px;
-    margin-right: 42px;
+.layout-3-column>.main__slide-container-image {
+    display: flex;
+    height: 100%;
+    width: max-content;
 }
 
-.main__phone-one{
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    margin-top: 28px;
-    margin-left: 11px;
+.slide-container-image_transition {
+    transition: all 1s ease;
+}
+
+
+.main__slide-container-image>div {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+}
+
+.main__phone-one {
+    background-color: #f06c64;
 }
 
 .main__iphone-vertical-first {
-
+    position: absolute;
+    top: 7vh;
+    left: 13vw;
 }
 
-.main__iphone-vertical-first-offline {
-    margin-left: -228px;
-    margin-top: -22px;
-    width: 188px;
-    height: 334px;
-    background-color: #0f0f0f;
+.main__iphone-vertical-first-without-shadow {
+    position: absolute;
+    width: 216px;
+    height: 458px;
+    border-radius: 28px;
+    top: 7vh;
+    left: 13vw;
+    margin-left: 2px;
     z-index: 1;
 }
 
+.main__iphone-vertical-first-offline {
+    position: absolute;
+    width: 188px;
+    height: 334px;
+    top: 7vh;
+    left: 13vw;
+    margin-top: 65px;
+    margin-left: 16px;
+    background-color: #0f0f0f;
+}
+
 .main__iphone-horizontal-first {
-    margin-left: 111px;
-    margin-top: -1px;
+    position: absolute;
+    top: 27vh;
+    left: 40vw;
+}
+
+.main__iphone-horizontal-first-without-shadow {
+    position: absolute;
+    width: 458px;
+    height: 216px;
+    border-radius: 28px;
+    top: 27vh;
+    left: 40vw;
+    z-index: 1;
 }
 
 .main__iphone-horizontal-first-offline {
-    margin-left: -425px;
-    margin-top: -26px;
+    position: absolute;
+    width: 334px;
+    height: 188px;
+    top: 27vh;
+    left: 40vw;
+    margin-top: 14px;
+    margin-left: 59px;
+    background-color: #0f0f0f;
 }
 
 .main__phone-two {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-grow: 1;
-    margin-top: 25px;
+    width: 100%;
+    height: 100%;
+    background-color: #648BF0;
 }
 
 .main__iphone-vertical-second-left {
@@ -179,16 +221,24 @@ main {
     opacity: 0;
 }
 
-.main__right-chev {
-    margin-top: 281px;
-    margin-right: 40px;
-    margin-left: 40px;
+.main__left-chev {
+    position: absolute;
+    top: 50%;
+    left: 3%;
 }
 
-.main__slider-bottom {
-    margin-top: 30px;
+.main__right-chev {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+}
+
+.phone-one__slider-bottom {
+    position: absolute;
     height: 7px;
+    width: 100vw;
     background-color: #ea676b;
+    bottom: 0px;
 }
 
 .main__services {
@@ -380,6 +430,10 @@ main {
     border: 1px solid #c5c5c5;
     color: #dedede;
     outline: none;
+}
+
+.main__portfolio>.layout-4-column>img:hover{
+    cursor: pointer;
 }
 
 .main__portfolio>.layout-4-column{

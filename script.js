@@ -1,10 +1,12 @@
 window.addEventListener('scroll', menuSwitching); // переключение меню
+window.addEventListener('load', menuSwitching);
 
 function menuSwitching(){
 
     setTimeout(()=>{
         document.querySelector('#menu-block-link').querySelectorAll('a').forEach(el=> el.classList.remove('active-menu-link'));
 
+        //переделать через querySelectorAll('a').forEach
         if (document.querySelector('#home-mark').getBoundingClientRect().top <= 0 && 
             document.querySelector('#our-services-mark').getBoundingClientRect().top - 10>= 0){
             document.querySelector('#link-home-mark').classList.add('active-menu-link')
@@ -32,71 +34,61 @@ function menuSwitching(){
     
 };
 
+const container = document.querySelector('.main__slider .main__slide-container-image'); //защита от повторного клика по слайдеру во время анимации
+let sliderAnimationPermission = true;
+
 const slideLeftChev = document.querySelector('#slider-left-chev'); //листает слайдер влево
 slideLeftChev.addEventListener('click', slideLeft);
 
 function slideLeft(event){
-    let allImg = document.querySelector('.main__slider>.layout-3-column').querySelectorAll('div');
+    if(!sliderAnimationPermission) return true;
 
-    for(let key in allImg){
-       if (key == 0 || key == allImg.length-1) continue
-       if (!allImg[key].classList.contains('main__hiden')){
-            allImg[key].classList.add('main__hiden');
-            if(key == 1){
-                allImg[allImg.length-2].classList.remove('main__hiden');
-            }
-            else{
-                allImg[Number(key)-1].classList.remove('main__hiden');
-            };
+    let allImg = document.querySelectorAll('.main__slider .main__slide-container-image>div');
 
-            if(document.querySelector('.main__hiden').classList.contains('main__phone-one')) {
-                document.querySelector('.main__slider').style.backgroundColor = '#648BF0';
-                document.querySelector('.main__slider-bottom').style.backgroundColor = '#648BF0';
-            }
-            else if (document.querySelector('.main__hiden').classList.contains('main__phone-two')){
-                document.querySelector('.main__slider').style.backgroundColor = '#ea676b';
-                document.querySelector('.main__slider-bottom').style.backgroundColor = '#ea676b';
-            };
-            break;
-       };
-    };
+    container.classList.add('slide-container-image_transition');
+    container.style.transform = 'translateX(' + (-100/allImg.length) + '%)';
+
+    sliderAnimationPermission = false;
+
+    setTimeout(()=>{
+        container.classList.remove('slide-container-image_transition');
+        container.style.transform = '';
+        container.append(allImg[0]);
+        sliderAnimationPermission = true
+    },1000)
 };
 
 const slideRightChev = document.querySelector('#slider-right-chev'); //листает слайдер вправо
 slideRightChev.addEventListener('click', slideRight);
 
 function slideRight(event){
-   let allImg = document.querySelector('.main__slider>.layout-3-column').querySelectorAll('div');
+    if(!sliderAnimationPermission) return true;
 
-   for(let key in allImg){
-       if (key == 0 || key == allImg.length-1) continue
-       if (!allImg[key].classList.contains('main__hiden')){
-            allImg[key].classList.add('main__hiden');
-            if(key == allImg.length-2){
-                allImg[1].classList.remove('main__hiden');
-            }
-            else{
-                allImg[Number(key)+1].classList.remove('main__hiden');
-            };
+    let allImg = document.querySelectorAll('.main__slider .main__slide-container-image>div');
+    const container = document.querySelector('.main__slider .main__slide-container-image');
 
-            if(document.querySelector('.main__hiden').classList.contains('main__phone-one')) {
-                document.querySelector('.main__slider').style.backgroundColor = '#648BF0';
-                document.querySelector('.main__slider-bottom').style.backgroundColor = '#648BF0';
-            }
-            else if (document.querySelector('.main__hiden').classList.contains('main__phone-two')){
-                document.querySelector('.main__slider').style.backgroundColor = '#ea676b';
-                document.querySelector('.main__slider-bottom').style.backgroundColor = '#ea676b';
-            };
-            break;
-       };
-   };
+    container.prepend(allImg[allImg.length-1]);
+    allImg[0].style.transform = 'translateX(-100vw)';
+    allImg[allImg.length-1].style.transform = 'translateX(-100vw)';
+    container.classList.add('slide-container-image_transition');
+    container.style.transform = 'translateX(' + 100/allImg.length + '%)';
+
+    sliderAnimationPermission = false;
+
+    setTimeout(()=>{
+        container.classList.remove('slide-container-image_transition');
+        container.style.transform = '';
+        allImg[0].style.transform = '';
+        allImg[allImg.length-1].style.transform = '';
+        sliderAnimationPermission = true
+    },1000)
 };
 
-const verticalPhone = document.querySelector('#iphone-vertical-first-offline'); //выключение вертикального телефона
-verticalPhone.addEventListener('click', event => event.target.classList.toggle('main__hiden-screen'));
+const verticalPhone = document.querySelector('#iphone-vertical-first-without-shadow'); //выключение вертикального телефона
+verticalPhone.addEventListener('click', event => document.querySelector('#iphone-vertical-first-offline').classList.toggle('main__hiden-screen'));
 
-const horizontalPhone = document.querySelector('#iphone-horizontal-first-offline'); //выключение горизонтального телефона
-horizontalPhone.addEventListener('click', event => event.target.classList.toggle('main__hiden-screen'));
+const horizontalPhone = document.querySelector('#iphone-horizontal-first-without-shadow'); //выключение горизонтального телефона
+horizontalPhone.addEventListener('click', event => document.querySelector('#iphone-horizontal-first-offline').classList.toggle('main__hiden-screen'));
 
 const portfolioFirstButton = document.querySelector('#portfolio-first-button');
 portfolioFirstButton.addEventListener('click', changePositionImgPortfolio)
@@ -121,6 +113,11 @@ function changePositionImgPortfolio(event){ //сортировка картин�
 
 const containerPortfolio = document.querySelector('#container-with-portfolio'); //выделение картинок портфолио при клике
 containerPortfolio.addEventListener('click', event => {
+    if(event.target.classList.contains('img_outline')) {
+        event.target.classList.remove('img_outline');
+        return true;
+    };
+
     containerPortfolio.querySelectorAll('img').forEach(el => el.classList.remove('img_outline'));
     event.target.classList.add('img_outline');
 })
