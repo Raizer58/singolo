@@ -90,25 +90,22 @@ verticalPhone.addEventListener('click', event => document.querySelector('#iphone
 const horizontalPhone = document.querySelector('#iphone-horizontal-first-without-shadow'); //выключение горизонтального телефона
 horizontalPhone.addEventListener('click', event => document.querySelector('#iphone-horizontal-first-offline').classList.toggle('main__hiden-screen'));
 
-const portfolioFirstButton = document.querySelector('#portfolio-first-button');
-portfolioFirstButton.addEventListener('click', changePositionImgPortfolio)
+const portfolioButton = document.querySelector('#portfolio-block-link');
+portfolioButton.addEventListener('click', changePositionImgPortfolio)
+portfolioButton.addEventListener('click', changePositionActiveButton)
 
-const portfolioSecondButton = document.querySelector('#portfolio-second-button');
-portfolioSecondButton.addEventListener('click', changePositionImgPortfolio)
+function changePositionImgPortfolio(event){ //сортировка картинок портфолио
+    if(event.target.tagName == "BUTTON"){
+        let firstElement = document.querySelector('#container-with-portfolio').querySelector('img');
+        document.querySelector('#container-with-portfolio').append(firstElement);
+    }
+}
 
-const portfolioThirdButton = document.querySelector('#portfolio-third-button');
-portfolioThirdButton.addEventListener('click', changePositionImgPortfolio)
-
-const portfolioFourthButton = document.querySelector('#portfolio-fourth-button');
-portfolioFourthButton.addEventListener('click', changePositionImgPortfolio)
-
-function changePositionImgPortfolio(event){ //сортировка картинок портфолиа
-    let imgPortfolio = [];
-    let sortElement;
-    document.querySelector('#container-with-portfolio').querySelectorAll('img').forEach(el => imgPortfolio.push(el));
-    sortElement = imgPortfolio.shift();
-    imgPortfolio.push(sortElement);
-    imgPortfolio.forEach(el => document.querySelector('#container-with-portfolio').append(el));
+function changePositionActiveButton(event){ //изменение активной кнопки портфолио
+    if(event.target.tagName == "BUTTON"){
+        portfolioButton.querySelectorAll('button').forEach(el=>el.classList.remove('portfolio_button-whit-focus'));
+        event.target.classList.add('portfolio_button-whit-focus')
+    }
 }
 
 const containerPortfolio = document.querySelector('#container-with-portfolio'); //выделение картинок портфолио при клике

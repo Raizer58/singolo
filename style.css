@@ -425,7 +425,7 @@ main {
     cursor: pointer;
 }
 
-.main__portfolio>.portfolio__buttons button:focus{
+.main__portfolio>.portfolio__buttons .portfolio_button-whit-focus {
     background-color: #0f0f0f;
     border: 1px solid #c5c5c5;
     color: #dedede;
@@ -548,7 +548,6 @@ main {
     height: 6px;
     background-color: #ffffff;
 }
-
 
 
 body {
