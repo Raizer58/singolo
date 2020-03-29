@@ -60,6 +60,10 @@ header {
     z-index: 5;
 }
 
+header .display-none{
+    display: none;
+}
+
 header .layout-2-column {
     display: flex;
 }
@@ -866,8 +870,8 @@ body {
     }
     
     .main__portfolio>.layout-4-column>img{
-        width: calc((100% - 20px) / 2);
-        height: calc((100% - 120px) / 6);
+        width: calc((100% - 15px) / 2);
+        height: calc((100% - 90px) / 6);
     }
 
     .main__about-as>.layout-3-column>.about-as__teammate-1,
