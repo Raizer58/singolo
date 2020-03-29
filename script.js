@@ -1,10 +1,16 @@
+const burgerIcon = document.querySelector('#burger-icon');
+
+
+
+const menuBlock = document.querySelector('#menu-block-link');
+
 window.addEventListener('scroll', menuSwitching); // переключение меню
 window.addEventListener('load', menuSwitching);
 
 function menuSwitching(){
 
     setTimeout(()=>{
-        document.querySelector('#menu-block-link').querySelectorAll('a').forEach(el=> el.classList.remove('active-menu-link'));
+        menuBlock.querySelectorAll('a').forEach(el=> el.classList.remove('active-menu-link'));
 
         //переделать через querySelectorAll('a').forEach
         if (document.querySelector('#home-mark').getBoundingClientRect().top <= 0 && 
@@ -23,11 +29,13 @@ function menuSwitching(){
         };
 
         if (document.querySelector('#about-as-mark').getBoundingClientRect().top - 10 <= 0 &&
+            Math.ceil(window.pageYOffset + document.documentElement.clientHeight) < document.documentElement.offsetHeight && 
             document.querySelector('#get-a-quote-mark').getBoundingClientRect().top - 10 >= 0){
             document.querySelector('#link-about-as-mark').classList.add('active-menu-link')
         };
 
-        if (document.querySelector('#get-a-quote-mark').getBoundingClientRect().top - 10 <= 0){
+        if (Math.ceil(window.pageYOffset + document.documentElement.clientHeight) >= document.documentElement.offsetHeight ||
+            document.querySelector('#get-a-quote-mark').getBoundingClientRect().top - 10 <= 0){
             document.querySelector('#link-get-a-quote-mark').classList.add('active-menu-link')
         };
     }, 100);
@@ -121,13 +129,12 @@ containerPortfolio.addEventListener('click', event => {
 
 
 const mainForm = document.querySelector('#a-quote-mark') 
-const buttonMainForm = document.querySelector('#a-quote-mark>button') 
-buttonMainForm.addEventListener('click', sendMainForm)
+mainForm.addEventListener('submit', sendMainForm)
 const submiteSendMainForm =  document.querySelector('#form-message>button')  //подтверждение отправки формы
 submiteSendMainForm.addEventListener('click', event => {
     document.querySelector('#form-message-block').classList.add('main__hiden');
-    document.querySelector('#form-message>p:nth-child(2)').innerHTML = "Тема: Без темы";
-    document.querySelector('#form-message>p:nth-child(3)').innerHTML = "Описание: Без описания";
+    document.querySelector('#form-message>p:nth-child(2)').innerHTML = "Subject: no subject";
+    document.querySelector('#form-message>p:nth-child(3)').innerHTML = "Description: no description";
 })
 
 function sendMainForm (event) { //отправка формы
@@ -135,11 +142,11 @@ function sendMainForm (event) { //отправка формы
     if (mainForm.querySelector('input:first-child').checkValidity() && mainForm.querySelector('input:nth-child(2)').checkValidity()){
 
         if(mainForm.querySelector('input:nth-child(3)').value.length > 0){
-            let messageSubject = document.querySelector('#form-message>p:nth-child(2)').innerText.slice(0,6) + mainForm.querySelector('input:nth-child(3)').value;
+            let messageSubject = document.querySelector('#form-message>p:nth-child(2)').innerText.slice(0,9) + mainForm.querySelector('input:nth-child(3)').value;
             document.querySelector('#form-message>p:nth-child(2)').innerHTML = messageSubject
         };
         if(mainForm.querySelector('textarea').value.length > 0){
-            let messageDescribe = document.querySelector('#form-message>p:nth-child(3)').innerText.slice(0,10) + mainForm.querySelector('textarea').value;
+            let messageDescribe = document.querySelector('#form-message>p:nth-child(3)').innerText.slice(0,13) + mainForm.querySelector('textarea').value;
             document.querySelector('#form-message>p:nth-child(3)').innerHTML = messageDescribe
         };
         event.preventDefault();
