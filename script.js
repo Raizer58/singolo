@@ -1,6 +1,20 @@
-const burgerIcon = document.querySelector('#burger-icon');
+const burgerBlockIcon = document.querySelector('#burger-block-icon');
+const burgerBlockIconRotate = document.querySelector('#burger-block-icon-rotate');
+const burgerMenu = document.querySelector('#burger-menu');
 
+burgerBlockIcon.addEventListener('click', sideBar);
+burgerBlockIconRotate.addEventListener('click', sideBar);
+burgerMenu.addEventListener('click',closeSideBar)
 
+function sideBar(event){
+    document.querySelector('#burger-menu').classList.toggle('main__hiden');
+}
+
+function closeSideBar(event){
+    if(event.target.tagName == 'A'){
+        sideBar();
+    }
+}
 
 const menuBlock = document.querySelector('#menu-block-link');
 
@@ -11,32 +25,37 @@ function menuSwitching(){
 
     setTimeout(()=>{
         menuBlock.querySelectorAll('a').forEach(el=> el.classList.remove('active-menu-link'));
+        burgerMenu.querySelectorAll('a').forEach(el=> el.classList.remove('active-menu-link'));
 
-        //переделать через querySelectorAll('a').forEach
         if (document.querySelector('#home-mark').getBoundingClientRect().top <= 0 && 
             document.querySelector('#our-services-mark').getBoundingClientRect().top - 10>= 0){
-            document.querySelector('#link-home-mark').classList.add('active-menu-link')
+            document.querySelector('#link-home-mark').classList.add('active-menu-link');
+            document.querySelector('#saidbar-link-home-mark').classList.add('active-menu-link');
         };
 
         if (document.querySelector('#our-services-mark').getBoundingClientRect().top - 10 <= 0 &&
             document.querySelector('#portfolio-mark').getBoundingClientRect().top - 10 >= 0){
-            document.querySelector('#link-our-services-mark').classList.add('active-menu-link')
+            document.querySelector('#link-our-services-mark').classList.add('active-menu-link');
+            document.querySelector('#saidbar-link-our-services-mark').classList.add('active-menu-link');
         };
 
         if (document.querySelector('#portfolio-mark').getBoundingClientRect().top - 10<= 0 &&
             document.querySelector('#about-as-mark').getBoundingClientRect().top - 10 >= 0){
-            document.querySelector('#link-portfolio-mark').classList.add('active-menu-link')
+            document.querySelector('#link-portfolio-mark').classList.add('active-menu-link');
+            document.querySelector('#saidbar-link-portfolio-mark').classList.add('active-menu-link')
         };
 
         if (document.querySelector('#about-as-mark').getBoundingClientRect().top - 10 <= 0 &&
             Math.ceil(window.pageYOffset + document.documentElement.clientHeight) < document.documentElement.offsetHeight && 
             document.querySelector('#get-a-quote-mark').getBoundingClientRect().top - 10 >= 0){
-            document.querySelector('#link-about-as-mark').classList.add('active-menu-link')
+            document.querySelector('#link-about-as-mark').classList.add('active-menu-link');
+            document.querySelector('#saidbar-link-about-as-mark').classList.add('active-menu-link')
         };
 
         if (Math.ceil(window.pageYOffset + document.documentElement.clientHeight) >= document.documentElement.offsetHeight ||
             document.querySelector('#get-a-quote-mark').getBoundingClientRect().top - 10 <= 0){
-            document.querySelector('#link-get-a-quote-mark').classList.add('active-menu-link')
+            document.querySelector('#link-get-a-quote-mark').classList.add('active-menu-link');
+            document.querySelector('#saidbar-link-get-a-quote-mark').classList.add('active-menu-link');
         };
     }, 100);
     
