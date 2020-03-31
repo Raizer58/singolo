@@ -151,6 +151,7 @@ const mainForm = document.querySelector('#a-quote-mark')
 mainForm.addEventListener('submit', sendMainForm)
 const submiteSendMainForm =  document.querySelector('#form-message>button')  //подтверждение отправки формы
 submiteSendMainForm.addEventListener('click', event => {
+    mainForm.querySelectorAll('*').forEach(el => el.value ="");
     document.querySelector('#form-message-block').classList.add('main__hiden');
     document.querySelector('#form-message>p:nth-child(2)').innerHTML = "Subject: no subject";
     document.querySelector('#form-message>p:nth-child(3)').innerHTML = "Description: no description";
@@ -169,7 +170,6 @@ function sendMainForm (event) { //отправка формы
             document.querySelector('#form-message>p:nth-child(3)').innerHTML = messageDescribe
         };
         event.preventDefault();
-        document.querySelector('#form-message-block').classList.remove('main__hiden')
-        mainForm.querySelectorAll('*').forEach(el => el.value ="")
+        document.querySelector('#form-message-block').classList.remove('main__hiden');
     }
 }
